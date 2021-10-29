@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Move Image</title>
+      
+<script language = "javascript">
+	var clear;
+	function move()
+	{
+			var img = document.getElementById('imgid').style;
+			img.left=0;
+		    clear=setInterval(moveRight,250);
+         }
+	 function moveRight()
+	 {
+			var img = document.getElementById('imgid').style;
+			var lft = (parseInt(img.left)+ 5)%865;
+			img.left = lft +'px';
+	    }
+	function stop()
+	{
+			clearInterval(clear);
+		}
+</script>
+</head>
+
+<body>
+	 <form>
+	 
+		 <img id="imgid" src="cat.jpg" style="position:absolute; width:500; height:300; top:150; left:0px" />
+		 <br>
+		 <center>
+		 <input type ="button" value="MOVE" onClick="move()" style="width:100; height:50"/>
+		 <input type ="button" value="STOP" onClick="stop()" style="width:100; height:50"/>
+		 </center>
+		 
+      </form>
+</body>
+</html>
