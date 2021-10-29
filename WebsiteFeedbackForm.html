@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html land="en">
+	<head>
+		<meta charset="utf-8">
+		<title>INFONET SERVICES</title>
+		<script type="text/javascript">
+			
+			function validateForm() 
+			{
+				var x1 = document.forms["registration"]["fname"].value;
+				var x2 = document.forms["registration"]["lname"].value;
+				var x3 = document.forms["registration"]["email"].value;
+				var x4 = document.forms["registration"]["address"].value;
+				var x5 = document.forms["registration"]["city"].value;
+				var x6 = document.forms["registration"]["state"].value;
+				var x7 = document.forms["registration"]["postalcode"].value;
+				var x8 = document.forms["registration"]["country"].value;
+				if (x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5 == "" || x6 == "" || x7 == "" || x8 == "" ) 
+				{
+					alert("ALL FIELDS MUST BE FILLED OUT.");
+					return false;
+				}
+				else
+					alert("FORM SUBMITTED SUCCESSFULLY.");
+			}
+			function refreshPage()
+			{
+				if(confirm("Are you sure, want to refresh?"))
+				{
+				location.reload();
+				}	
+			}				
+		</script>
+	</head>
+	<body>
+		<h1>	INFONET SERVICES</h1>
+		<form name='registration' onsubmit="return validateForm();">
+			<li><input type="text" name="fname" size="12" /> 
+			<label for="fname"> First Name</label></li>
+			<br>
+			<li><input type="text" name="lname" size="12" />
+			<label for="lname">	Last Name</label></li>
+			<br>
+			<li><input type="text" name="email" size="12" />
+			<label for="email">	E-mail</label></li>
+			<br>
+			<li><input type="text" name="address" size="12" />
+			<label for="address"> Address</label></li>
+			<br>
+			<li><input type="text" name="city" size="12" />
+			<label for="city"> City</label></li>
+			<br>
+			<li>
+			<input type="text" name="state" size="12" />
+			<label for="state">State</label>
+			&emsp;
+			<input type="text" name="postalcode" size="12" />
+			<label for="postalcode">Postal Code</label>
+			&emsp;
+			<input type="text" name="country" size="12" />
+			<label for="country">Country</label>
+			</li>
+			<br>
+			<i>		Please choose the most appropriate statement : </i>
+			<li><input type="radio" name="statement1" value="I am 1"><span>I reguralrly purchase online items.</span></li>
+			<li><input type="radio" name="statement2" value="I am 2"><span>I have on occasion purchased items online.</span></li>
+			<li><input type="radio" name="statement3" value="I am 3"><span>I have not purchased anything online, but I would consider it.</span></li>
+			<li><input type="radio" name="statement4" value="I am 4"><span>I prefer to shop in real stores.</span></li>
+			<br>
+			<i>		I am interested in(check all that apply) : </i>
+			<li><input type="checkbox" name="intrests" value="cb1" />
+			<span>Hiking</span></li>
+			<li><input type="checkbox" name="intrests" value="cb2" />
+			<span>Mountain Biking</span></li>
+			<li><input type="checkbox" name="intrests" value="cb3" />
+			<span>Camping</span></li>
+			<li><input type="checkbox" name="intrests" value="cb4" />
+			<span>Rock Climbing</span></li>
+			<li><input type="checkbox" name="intrests" value="cb5" />
+			<span>Off Road 4WD</span></li>
+			<li><input type="checkbox" name="intrests" value="cb6" />
+			<span>Cross Country skiing</span></li>
+			<br>
+			<li><label for="gtk"><i>I learned about this site from : </i></label></li>
+			<li><select name="gtk">
+			<option selected="" value="Default"></option>
+			<option value="d1"> Friends </option>
+			<option value="d2"> Ads </option>
+			<option value="d2"> Internet Surfing </option>
+			</select></li>
+			<br>
+			<li><label for="comment">Comment</label></li>
+			<li><textarea name="comment" id="comment"></textarea></li>
+			<br>
+			<li><input type="submit" value="SUBMIT">
+			&emsp;
+			<input type="button" value="START OVER" onClick="refreshPage();" "></li>
+		</form>
+	</body>
+</html>
