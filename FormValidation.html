@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html land="en">
+	<head>
+		<meta charset="utf-8">
+		<title>INFONET SERVICES</title>
+		<script type="text/javascript">
+			function formValidation()
+			{
+				var fnameid = document.registration.fname;
+				var lnameid = document.registration.lname;
+				var emailid = document.registration.email;
+				var addressid = document.registration.address;
+				var cityid = document.registration.city;
+				var stateid = document.registration.state;
+				var postalcodeid = document.registration.postalcode;
+				var countryid = document.registration.country;
+				var statement1id = document.registration.statement1;
+				var statement2id = document.registration.statement2;
+				var statement3id = document.registration.statement3;
+				var statement4id = document.registration.statement4;					
+				if(fname_validation(fnameid,4,10))
+					{	
+						if(lname_validation(lnameid,4,10))
+						{
+							if(email_validation(emailid))
+							{
+								if(address_validation(addressid))
+								{
+									if(city_validation(cityid))
+									{
+										if(state_validation(stateid))
+										{
+											if(postalcode_validation(postalcodeid))
+											{
+												if(country_validation(countryid))
+												{
+													if(statement_validation(statement1id,statement2id,statement3id,statement4id))
+														return true;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				else
+				{
+					return false;
+				}
+			}
+			function fname_validation(fname_id,min,max)
+			{	
+				var fname_len = fname_id.value.length;
+				if( fname_len ==0 || fname_len <= min || fname_len >= max)
+					alert("Please enter first name of length 4 to 10.");
+					fname_id.focus();
+					return false;
+			}
+			function lname_validation(lname_id,min,max)
+			{
+				var lname_len = lname_id.value.length;
+				if( lname_len ==0 || lname_len <= min || lname_len >= max)
+					alert("Please enter first name of length 4 to 10.");
+					lname_id.focus();
+					return false;
+			}
+			function email_validation(email_id)
+			{
+				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				if(email_id.value.match(mailformat))
+					return true;
+				else
+					alert("You have entered an invalid email address!");
+					email_id.focus();
+					return false;
+			}
+			function address_validation(address_id)
+			{
+				var letters = /^[0-9a-zA-Z]+$/;
+				if(address_id.value.match(letters))
+					return true;
+				else
+					alert('User address must have alphanumeric characters only');
+					address_id.focus();
+					return false;
+			}
+			function city_validation(city_id)
+			{
+				var letters = /^[A-Za-z]+$/;
+				if(city_id.value.match(letters))
+					return true;
+				else
+					city_id.focus();
+					alert('City name can contain alphabets only.');
+					return false;
+			}
+			function state_validation(state_id)
+			{
+				var letters = /^[A-Za-z]+$/;
+				if(state_id.value.match(letters))
+					return true;
+				else
+					state_id.focus();
+					alert('State name can contain alphabets only.');
+					return false;
+			}
+			function postalcode_validation(postalcode_id)
+			{ 
+				var numbers = /^[0-9]+$/;
+				if(postalcode_id.value.match(numbers))
+					return true;
+				else
+					alert('Postal Code must have numeric characters only');
+					postalcode_id.focus();
+					return false;
+			}
+			function country_validation(country_id)
+			{
+				var letters = /^[A-Za-z]+$/;
+				if(country_id.value.match(letters))
+					return true;
+				else
+					country_id.focus();
+					alert('Country name can contain alphabets only.');
+					return false;
+			}
+			function statement_validation(statement1_id,statement2_id,statement3_id,statement4_id)
+			{
+				x=0;
+				if(statement1_id.checked)
+				{
+					x++;
+				}
+				if(statement2_id.checked)
+				{	
+					x++;
+				}					
+				if(statement3_id.checked)
+				{				
+					x++; 
+				}
+				if(statement4_id.checked)
+				{
+					x++; 
+				}
+				if(x==0)
+				{
+					alert('Select one statement');
+					statement_1.focus();
+					return false;
+				}
+				else
+				{
+					alert('SUBMITTED');
+					window.location.reload()
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>INFONET SERVICES</h1>
+		<form name='registration' onSubmit="return formValidation();">
+			<li><input type="text" name="fname" size="12" /> 
+			<label for="fname"> First Name</label></li>
+			<br>
+			<li><input type="text" name="lname" size="12" />
+			<label for="lname">	Last Name</label></li>
+			<br>
+			<li><input type="text" name="email" size="12" />
+			<label for="email">	E-mail</label></li>
+			<br>
+			<li><input type="text" name="address" size="12" />
+			<label for="address"> Address</label></li>
+			<br>
+			<li><input type="text" name="city" size="12" />
+			<label for="city"> City</label></li>
+			<br>
+			<li>
+			<input type="text" name="state" size="12" />
+			<label for="state">State</label>
+			&emsp;
+			<input type="text" name="postalcode" size="12" />
+			<label for="postalcode">Postal Code</label>
+			&emsp;
+			<input type="text" name="country" size="12" />
+			<label for="country">Country</label>
+			</li>
+			<br>
+			<i>Please choose the most appropriate statement : </i>
+			<li><input type="radio" name="statement1" value="I am 1"><span>I am 1</span></li>
+			<li><input type="radio" name="statement2" value="I am 2"><span>I am 2</span></li>
+			<li><input type="radio" name="statement3" value="I am 3"><span>I am 3</span></li>
+			<li><input type="radio" name="statement4" value="I am 4"><span>I am 4</span></li>
+			<br>
+			<i>I am interested in : </i>
+			<li><input type="checkbox" name="intrests" value="cb1" />
+			<span>CB 1</span></li>
+			<li><input type="checkbox" name="intrests" value="cb2" />
+			<span>CB 2</span></li>
+			<li><input type="checkbox" name="intrests" value="cb3" />
+			<span>CB 3</span></li>
+			<li><input type="checkbox" name="intrests" value="cb4" />
+			<span>CB 4</span></li>
+			<li><input type="checkbox" name="intrests" value="cb5" />
+			<span>CB 5</span></li>
+			<li><input type="checkbox" name="intrests" value="cb6" />
+			<span>CB 6</span></li>
+			<br>
+			<li><label for="gtk"><i>I learned about this site from : </i></label></li>
+			<li><select name="gtk">
+			<option selected="" value="Default"></option>
+			<option value="d1"> Option 1</option>
+			<option value="d2"> Option 2</option>
+			<option value="d2"> Option 3</option>
+			</select></li>
+			<br>
+			<li><label for="comment">Comment</label></li>
+			<li><textarea name="comment" id="comment"></textarea></li>
+			<br>
+			<li><input type="submit" name="submit" value="Submit">
+			&emsp;
+			<input type="button" value="  START OVER  "></li>
+		</form>
+	</body>
+</html>
